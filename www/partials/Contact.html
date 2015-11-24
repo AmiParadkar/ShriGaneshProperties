@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo">Click the button to get your position.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<div id="mapholder"></div>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<!-- <script src="scripts/utils/js-util.js"></script> -->
+<!-- <script src="scripts/utils/geolocation-manager.js"></script> -->
+<!-- <script src="scripts/utils/map-factory.js"></script> -->
+
+<!-- <script src="scripts/controllers/map.js"></script>
+<script src="scripts/controllers/open-street-map.js"></script>
+<script src="scripts/controllers/google-map.js"></script>
+<script src="scripts/controllers/hybrid-map.js"></script>
+<script src="scripts/controllers/map-switcher.js"></script>
+<script src="scripts/controllers/geolocation-box.js"></script>
+<script src="scripts/controllers/search-box.js"></script> -->
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    position.coords.latitude = 40.593648;
+    position.coords.longitude = -74.340290;
+
+    var gmPosition = new google.maps.LatLng(40.593648, -74.340290);
+    
+
+     //var chicago = new google.maps.LatLng(41.850, -87.650);
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: gmPosition,
+    zoom: 3
+  });
+
+
+    //var latlon = position.coords.latitude + "," + position.coords.longitude;
+    var latlon = map.position.coords.latitude +"," + map.position.coords.longitude;
+    
+    alert(latlon);
+
+    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=14&size=400x300&sensor=false";
+    alert(img_url);
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+
+</body>
+</html>

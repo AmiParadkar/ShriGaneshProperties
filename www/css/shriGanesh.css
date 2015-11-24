@@ -1,8 +1,68 @@
 body{
-	padding-top: 70px;
+	padding-top: 80px;
+	background-image: url("../../img/LordShriGanesh.jpg");
+  font-color: white;
+  color:white;
+  background-color: white;
 }
 @media screen and (max-width: 768px) {
   body {
     padding-top: 80px;
+    background-image: url("../../img/LordShriGanesh.jpg");
+    background-color: #cccccc;
+    color: white;
   }
 }
+.navbar-inverse .navbar-brand {
+  color: white;
+  font-size: 20px;
+}
+.navbar-inverse .navbar-brand a:focus,
+.navbar-inverse .navbar-brand a:hover {
+  font-color: white;
+}
+.appLogo {
+  font-weight: bold;
+  align: center;
+  text-align: center;
+  font-color: white;
+
+}
+@media (min-width: 1200px){
+.container {
+    width: 100%;
+    margin:0px;
+    
+}
+}
+
+@media (min-width:768px) {
+    .container {
+        width: 100%;
+    margin:0px;
+    
+    }
+}
+
+@media (min-width:992px) {
+    .container {
+       width: 100%;
+    margin:0px;
+    
+    }
+}
+.navHr{
+  margin: 0px;
+  padding:0px;
+  border-top: 3px solid #eee
+}
+.compDetail{
+  color:black;
+}
+.homeSection{
+  height:500px;
+};
+
+
+
+

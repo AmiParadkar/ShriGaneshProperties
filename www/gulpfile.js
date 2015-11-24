@@ -13,14 +13,16 @@ var gulp = require('gulp')
 //			Variable
 //////////////////////////////////////////
 var buildDir = "./static",
-	jsFiles = 'js/*.js',
+	jsFiles = 'js/**/*.js',
 	cssFiles = 'css/*.css',
 	//vendorJsFiles = "bower_components/**/*.min.js" + "bower_components/**/dist/js/*.min.js";
 	vendorJsFiles = "bower_components/**/*.min.js",
 	//vendorJsMapFiles = "bower_components/**/*.min.js.map",
 	vendorJsDistFiles = "bower_components/**/dist/js/*.min.js",
+	vendorJsDistWithoutJSDirFiles = "bower_components/**/dist/*.min.js",
 	vendorCSSFiles = "bower_components/**/*.min.css",
-	vendorCSSDistFiles = "bower_components/**/dist/css/*.min.css";
+	vendorCSSDistFiles = "bower_components/**/dist/css/*.min.css",
+	vendorFontFiles = "bower_components/bootstrap/fonts/*";
 
 //////////////////////////////////////////
 //			script
@@ -37,11 +39,23 @@ gulp.task('script',function(){
 
 gulp.task('vendorScript',function(){
 	gulp.src([vendorJsFiles,
-		vendorJsDistFiles])
+		vendorJsDistFiles,
+		vendorJsDistWithoutJSDirFiles])
 	.pipe(conact('vendor.js'))
+	.pipe(uglify())
 	.pipe(rename({suffix:'.min'}))
 	.pipe(gulp.dest(buildDir+'/js'));
 })
+
+//////////////////////////////////////////
+//			fonts
+//////////////////////////////////////////
+gulp.task('vendorFont',function(){
+	gulp.src(vendorFontFiles)
+	.pipe(gulp.dest(buildDir+'/fonts'));
+
+})
+
 //////////////////////////////////////////
 //			CSS
 //////////////////////////////////////////
@@ -72,6 +86,6 @@ gulp.task('watch',function(){
 //////////////////////////////////////////
 //			Default
 //////////////////////////////////////////
-gulp.task('default',['script','vendorScript','css', 'vendorCSS','watch']);
+gulp.task('default',['script','vendorScript','css', 'vendorCSS','vendorFont','watch']);
 
 
