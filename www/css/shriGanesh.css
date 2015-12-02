@@ -1,6 +1,6 @@
 body{
 	padding-top: 80px;
-	background-image: url("../../img/LordShriGanesh.jpg");
+	background-image: url("../../img/LordShriGaneshWCR.jpg");
   font-color: white;
   color:white;
   background-color: white;
@@ -8,7 +8,7 @@ body{
 @media screen and (max-width: 768px) {
   body {
     padding-top: 80px;
-    background-image: url("../../img/LordShriGanesh.jpg");
+    background-image: url("../../img/LordShriGaneshWCR.jpg");
     background-color: #cccccc;
     color: white;
   }
@@ -61,8 +61,25 @@ body{
 }
 .homeSection{
   height:500px;
+  width: 600px;
 };
-
-
+.contact-left-contact{
+  height:400px;
+  width: 600px;
+}
+a, a:focus, a:hover{
+  color:lightgoldenrodyellow;
+}
+label.loginPage {
+  margin-left: 20px;
+  color:black;
+}
+.form-group.loginPage {
+  margin-top: 10px;
+}
+.form-control.loginPage {
+  margin: 10px;
+  width: 90%;
+}
 
 

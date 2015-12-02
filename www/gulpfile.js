@@ -38,9 +38,10 @@ gulp.task('script',function(){
 });
 
 gulp.task('vendorScript',function(){
-	gulp.src([vendorJsFiles,
-		vendorJsDistFiles,
-		vendorJsDistWithoutJSDirFiles])
+	gulp.src([vendorJsFiles
+		// ,vendorJsDistFiles
+		// ,vendorJsDistWithoutJSDirFiles
+		])
 	.pipe(conact('vendor.js'))
 	.pipe(uglify())
 	.pipe(rename({suffix:'.min'}))
