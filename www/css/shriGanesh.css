@@ -81,5 +81,9 @@ label.loginPage {
   margin: 10px;
   width: 90%;
 }
-
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
 

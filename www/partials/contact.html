@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<body>
 
 	<p id="demo">Click the button to get your position.</p>
 
-	<button onclick="getLocation()">Try It</button>
+	<button ng-click="getLocation()">Try It</button>
 
 	<div id="mapholder"></div>
 
-	<script
+	<script type="text/javascript"
 		src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 	<!-- <script src="scripts/utils/js-util.js"></script> -->
 	<!-- <script src="scripts/utils/geolocation-manager.js"></script> -->
@@ -21,7 +18,7 @@
 <script src="scripts/controllers/map-switcher.js"></script>
 <script src="scripts/controllers/geolocation-box.js"></script>
 <script src="scripts/controllers/search-box.js"></script> -->
-	<script>
+	<script type="text/javascript">
 var x = document.getElementById("demo");
 
 function getLocation() {
@@ -41,7 +38,7 @@ function showPosition(position) {
 
      //var chicago = new google.maps.LatLng(41.850, -87.650);
 
-  var map = new google.maps.Map(document.getElementById('map'), {
+  var map = new google.maps.Map(document.getElementById('mapholder'), {
     center: gmPosition,
     zoom: 3
   });
@@ -75,6 +72,3 @@ function showError(error) {
     }
 }
 </script>
-
-</body>
-</html>

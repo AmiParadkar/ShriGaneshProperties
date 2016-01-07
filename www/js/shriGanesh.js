@@ -16,6 +16,10 @@ angular.module('app',['ngRoute','app.Controllers'])
 		templateUrl: '/partials/register.html',
 		controller: 'homeCtrl'
 	})
+	.when('/carousel',{
+		templateUrl: '/partials/carousel.html',
+		controller: 'homeCtrl'
+	})
 	.when('/signIn',{
 		templateUrl: '/partials/login.html',
 		controller: 'homeCtrl'
